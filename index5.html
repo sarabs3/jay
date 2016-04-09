@@ -15,10 +15,6 @@
 
     	// Nesting for Connections
     	var connections = d3.nest();
-    	connections.key(function(d)
-    		{return d.Level},
-    		{return d.Level}
-    		);
     	var componentsLevel = levels.entries(data.Components);
 
 	    var svg = d3.select('#viz')

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="d3.min.js"></script>
+</head>
+<body>
+
+	<div id="svg"></div>
+    <script type="text/javascript">
+    d3.json('data.json',function(data){
+    	//console.log(data.Components);
+    });
+    	d3.json('data.json',function(data){
+    		var data1= data.Components[data.Components.length - 1];
+    		//console.log(function(data1){return data1});
+    		var svg = d3.select('#svg').append('svg')
+    		.data([data])
+    		.attr('width',1200)
+    		.attr('height', 800)
+
+    		/*svg.selectAll('rect')
+    		.data(function(d){ var ite = d3.values(d.Components); 
+    			function dat(ite){
+    				var levels = [];
+    				var iteLength = ite.length;
+    				//var i = '';
+    				for(i=0; i<iteLength; i++){
+    					console.log(ite[i].Level);
+    					var levelVal = ite[i].Level;
+    					//console.log(levelVal);
+    					levels.push(levelVal);
+    				}    				
+    				return levels;
+    			};
+    			return dat(ite);
+    		})
+    			.append('rect')
+    			.attr('width',44)
+    			.attr('height',46)
+    			.attr('fill','#FFFFFF')
+    			.attr('stroke','#000000')
+    			.attr('stroke-miterlimit',10)
+    			//.attr('y',function(d,i){return i * 45})
+    			.attr('x',function(d,i){return d * 110})*/
+//    			.attr('y',function(d){return d.Level * 45})
+			
+
+			/*svg.selectAll("line")
+            .data(function(d){return d3.values(d.Connections)})
+            .enter()
+            	.append('line')
+            	.attr("x1", function(d){return d.From * 110})
+            	.attr("y1", function(d,i){return 22})
+            	.attr("x2", function(d){return d.To * 110})
+            	.attr("y2", function(d,i){return 22})
+            	.attr("stroke-width", 2)
+            	.attr("stroke", "black");*/
+
+    		svg.selectAll('text')
+    		/*.data(function(d){ var ite = d3.values(d.Components); 
+    			function dat(ite){
+    				var levels = [];
+    				
+    				var iteLength = ite.length;
+    				//var i = '';
+    				for(i=0; i<iteLength; i++){
+    					console.log(ite[i].Level);
+    					var levelVal = ite[i].Level;
+    					//console.log(levelVal);
+    					levels.push(levelVal);
+    				}    				
+    				return levels;
+    			};
+    			return dat(ite);
+    		})*/
+    		
+    		/*.data(function(d){return  d3.values(d.Components)})
+    		.enter()
+    			.append('text')
+    			.attr('fill','blue')
+    			.attr('y',function(d,i){return i*50 + 20;})
+    			.text(function(d){
+    				//var d = d.Components;
+    				//console.log(d);    				
+    				
+    					/*console.log(ite[i].Level);
+    					var levelVal = ite[i].Level;
+    					//console.log(levelVal);
+    					levels.push(levelVal);
+    				})*/
+
+    		.data(function(d){ var ite = d3.values(d.Components); 
+    			function dat(ite){
+    				//var levels = [];
+    				
+    				var iteLength = ite.length;
+    				//var i = '';
+    				var l = 1;
+    				for(i=1; i<=iteLength; i++){
+
+    					var rl = ite[i].Level;
+    					//var n = d[i].Name;
+    					//var id = d.[i].ID;
+
+    					if(l == rl){
+    						return('same');	
+    					} else {
+    						return('different');    					
+    					}    					
+    					l = rl;
+    				}				
+    				//return levels;
+    			};
+    			return dat(ite);
+    		})
+    		.enter()
+    			.append('text')
+    			.attr('fill','blue')
+    			.attr('y',function(d,i){return i*50 + 20;})
+    			.text(function(d){return d})
+
+
+    	})
+   
+    </script>
+</body>
+</html>
+
+   
+    
+
+
+
+<!-- <svg width="612px" height="792px" >
+<rect x="155" y="263.667" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="44.333" height="46.333"/>
+<circle stroke="#000000" stroke-miterlimit="10" cx="155" cy="286.833" r="1.375"/>
+<circle stroke="#000000" stroke-miterlimit="10" cx="199.333" cy="286.833" r="1.375"/>
+</svg> -->
+
+
+<!-- var l = 1;
+    				for(i=1; i<=len; i++){
+
+    					var rl = d[i].Level;
+    					//var n = d[i].Name;
+    					//var id = d.[i].ID;
+
+    					if(l == rl){
+    						return('same');	
+    					} else {
+    						return('different');    					
+    					}    					
+    					l = rl;
+    				} -->

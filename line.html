@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="d3.min.js"></script>
+</head>
+<body>
+    <svg width="720" height="120">
+      <line x1="100" y1="10" x2="200" y2="10" stroke-width="2" stroke="black"/>
+      <line x1="200" y1="20" x2="300" y2="20" stroke-width="2" stroke="black"/>
+      <line x1="300" y1="30" x2="400" y2="30" stroke-width="2" stroke="black"/>
+    </svg>
+    <div id="viz"></div>
+
+    <script type="text/javascript">
+
+//Make an SVG Container
+
+var lines = d3.selectAll('line');
+lines.style("stroke", "blue");
+lines.data([400, 800, 600]);
+circle.attr("x1", function(d) { return Math.sqrt(d); });
+
+ var svgContainer = d3.select("#viz").append("svg")
+                                     .attr("width", 200)
+                                     .attr("height", 200);
+ 
+ //Draw the line
+ var circle = svgContainer.append("line")
+            .data([100, 200, 300])
+                          .attr("x1", function(d) { return Math.sqrt(d); })
+                          .attr("y1", 10)
+                         .attr("x2", 200)
+                         .attr("y2", 10)
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "black");
+
+
+    
+    </script>
+</body>
+</html>
+
+   
+    
